@@ -161,7 +161,8 @@ CREATE TABLE public.star (
     star_id integer NOT NULL,
     galaxy_id integer,
     num_planets integer,
-    name character varying(50) NOT NULL
+    name character varying(50) NOT NULL,
+    description text
 );
 
 
@@ -305,6 +306,14 @@ ALTER TABLE ONLY public.moon
 
 ALTER TABLE ONLY public.planet
     ADD CONSTRAINT planet_pkey PRIMARY KEY (planet_id);
+
+
+--
+-- Name: star star_description_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.star
+    ADD CONSTRAINT star_description_key UNIQUE (description);
 
 
 --
